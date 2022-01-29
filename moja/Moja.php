@@ -60,7 +60,8 @@ class Moja implements MojaInterface {
                 ]
             );
             $body = $response->getBody();
-            dd(json_decode((string) $body, true));
+
+            return json_decode((string) $body, true);
         } catch (Exception $ex) {
             Log::error($ex->getMessage());
             echo $ex->getMessage();
