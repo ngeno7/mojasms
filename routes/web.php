@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\SMSController;
 use Illuminate\Support\Facades\Route;
+use Moja\Moja;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+    SMSController::class, 'index'
+])->name('home');
+Route::post('/send-sms', [
+    SMSController::class, 'sendSMS'
+])->name('send-sms');
